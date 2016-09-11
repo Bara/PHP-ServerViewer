@@ -1,0 +1,1 @@
+ALTER TABLE `servers` MODIFY `ip` VARCHAR(64);
