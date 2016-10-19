@@ -6,4 +6,4 @@
 ## PHP-Viewer
 - Create a new database and execute this [file](https://github.com/Bara20/PHP-ServerViewer/blob/master/sql/servers.sql)
 - Change mysql informations [here](https://github.com/Bara20/PHP-ServerViewer/blob/master/bot/viewer.class.php#L7) and [here](https://github.com/Bara20/PHP-ServerViewer/blob/master/_config.php#L5-L9)
-- You add a server directly in the table (no other way)
+- You can add a server directly in the table (no other way)
