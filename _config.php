@@ -11,7 +11,7 @@
 	$forum = "/forum/";
 	$bans = "/bans/";
 
-	$query = "SELECT ip, port, countrycode, countryname, city, active, data, players, id, count, display, description, sourceBans, gameME FROM servers WHERE display = 1 ORDER BY ip ASC, port ASC";
+	$query = "SELECT ip, port, countrycode, countryname, active, data, players, id, count, display, description, sourceBans, gameME FROM servers WHERE display = 1 ORDER BY ip ASC, port ASC";
 	$scanquery = "SELECT last FROM lastscan";
 
 	// Percent
