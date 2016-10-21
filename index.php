@@ -160,9 +160,22 @@
 									if($bots == "1")
 										if($data["Bots"] > 0)
 											$nplayers = $nplayers - $data["Bots"];
-
-									$onepercent = 100 / $mplayers;
-									$percent = round($nplayers * $onepercent, 0);
+									
+									if($mplayers > "0")
+									{
+										$onepercent = 100 / $mplayers;
+										if($nplayers > "0")
+											$percent = round($nplayers * $onepercent, 0);
+										else
+											$percent = "0";
+										
+									}
+									else
+									{
+										$onepercent = "0";
+										$percent = "0";
+									}
+										
 
 									if($percent >= $danger)
 										$color = "danger";
