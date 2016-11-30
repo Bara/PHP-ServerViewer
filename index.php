@@ -3,6 +3,13 @@
 
 	if($active == false)
 		die("Under construction!");
+	
+	if($debug)
+		ini_set('display_errors', '1');
+	else if($debug == false && $debugErrors)
+		ini_set('display_errors', '1');
+	else if($debug == false && $debugErrors == false)
+		ini_set('display_errors', '0');
 
 	$cplayers = 0;
 	$cmaxplayers = 0;
