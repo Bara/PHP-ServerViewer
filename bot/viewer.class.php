@@ -29,16 +29,18 @@ class viewer {
         if(is_array($data)) {
             $data 	    = $this->database->real_escape_string(serialize($data));
             $players    = $this->database->real_escape_string(serialize($players));
+            $time = time();
 
-            $this->database->query("UPDATE `servers` SET `data` = '$data', `players` = '$players', `lastscan` = NOW(), `lastSuccessScan` = UNIX_TIMESTAMP() WHERE `id`='$id'");
+            $this->database->query("UPDATE `servers` SET `data` = '$data', `players` = '$players', `lastscan` = '$time' `lastSuccessScan` = UNIX_TIMESTAMP() WHERE `id`='$id'");
         }
         else {
-            $this->database->query("UPDATE `servers` SET `data` = 'Offline', `lastscan` = NOW() WHERE `id`='$id'");
+            $this->database->query("UPDATE `servers` SET `data` = 'Offline', `lastscan` = '$time' WHERE `id`='$id'");
         }
     }
 
 
     public function updateGlobalScan() {
-        $this->database->query("UPDATE `lastscan` SET `last` = NOW()");
+	$time = time();
+        $this->database->query("UPDATE `lastscan` SET `last` = '$time'");
     }
 }
