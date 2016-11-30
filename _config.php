@@ -1,6 +1,7 @@
 <?php
 	$active = true;
 	$debug = false;
+	$debugErrors = false;
 
 	$sqlhost = "hostname";
 	$sqlport = 3306;
