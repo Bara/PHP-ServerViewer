@@ -30,15 +30,15 @@ class viewer {
             $data 	    = $this->database->real_escape_string(serialize($data));
             $players    = $this->database->real_escape_string(serialize($players));
 
-            $this->database->query("UPDATE `servers` SET `data` = '$data', `players` = '$players', `lastscan` = UNIX_TIMESTAMP(), `lastSuccessScan` = UNIX_TIMESTAMP() WHERE `id`='$id'");
+            $this->database->query("UPDATE `servers` SET `data` = '$data', `players` = '$players', `lastscan` = NOW(), `lastSuccessScan` = UNIX_TIMESTAMP() WHERE `id`='$id'");
         }
         else {
-            $this->database->query("UPDATE `servers` SET `data` = 'Offline', `lastscan` = UNIX_TIMESTAMP() WHERE `id`='$id'");
+            $this->database->query("UPDATE `servers` SET `data` = 'Offline', `lastscan` = NOW() WHERE `id`='$id'");
         }
     }
 
 
     public function updateGlobalScan() {
-        $this->database->query("UPDATE `lastscan` SET `last` = UNIX_TIMESTAMP()");
+        $this->database->query("UPDATE `lastscan` SET `last` = NOW()");
     }
 }
