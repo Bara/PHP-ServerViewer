@@ -55,24 +55,6 @@
 					<a class="btn btn-default btn-alt m-r-5" href="<?php echo $forum ?>" role="button" target="_blank"><img src='img/forum.png' alt='' /> Forum</a>
 					<a class="btn btn-default btn-alt m-r-5" href="<?php echo $bans ?>" role="button" target="_blank"><img src='img/bans_l.png' alt='' /> Bans</a>
 				</p>
-				<?php
-					$mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldb, $sqlport);
-
-					if (mysqli_connect_errno())
-					{
-						printf("<strong><font color='red'>Connect failed: %s\n</font></strong>", mysqli_connect_error());
-						exit();
-					}
-
-					if ($result = $mysqli->query($scanquery))
-					{
-						while ($row = $result->fetch_object())
-							$last = $row->last;
-						$result->close();
-					}
-					$mysqli->close();
-				?>
-			
 						<?php
 							$mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldb, $sqlport);
 
@@ -244,7 +226,27 @@
 							$mysqli->close();
 						?>
 
-			<?php echo "<center><h3 class='block-title'><strong>Last Scan:</strong> " . date('d M Y H:i:s', $last) . " | <strong>Servers online:</strong> $sonline <strong>Servers:</strong> $servers | <strong>Spieler online:</strong> $cplayers <strong>Max. Spieler:</strong> $cmaxplayers</h3>"; ?>
+			<?php 
+				$mysqli = new mysqli($sqlhost, $sqluser, $sqlpass, $sqldb, $sqlport);
+
+				if (mysqli_connect_errno())
+				{
+					printf("<strong><font color='red'>Connect failed: %s\n</font></strong>", mysqli_connect_error());
+					exit();
+				}
+			
+				$last = 0;
+			
+				if ($result = $mysqli->query($scanquery))
+				{
+					while ($row = $result->fetch_object())
+						$last = $row->last;
+					$result->close();
+				}
+				$mysqli->close();
+			
+				echo "<center><h3 class='block-title'><strong>Last Scan:</strong> " . date('d M Y H:i:s', $last) . " | <strong>Servers online:</strong> $sonline <strong>Servers:</strong> $servers | <strong>Spieler online:</strong> $cplayers <strong>Max. Spieler:</strong> $cmaxplayers</h3>";
+			?>
 
 			<div class='table-responsive'>
 				<table class='table table-bordered table-hover table-condensed'>
