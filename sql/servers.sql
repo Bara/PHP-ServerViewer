@@ -2,8 +2,11 @@ SET FOREIGN_KEY_CHECKS=0;
 
 DROP TABLE IF EXISTS `lastscan`;
 CREATE TABLE `lastscan` (
-  `last` varchar(255) DEFAULT NULL
+  `last` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`last`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `lastscan` VALUES ('0');
 
 DROP TABLE IF EXISTS `servers`;
 CREATE TABLE `servers` (
