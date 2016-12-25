@@ -124,6 +124,8 @@
 
 									if($data["ModDir"] == "csgo")
 										$game = "<img src=\"img/games/" . $data["ModDir"] . ".png\" alt=\"" . $data["HostName"] . "\"/>";
+									else if($data["ModDir"] == "csco")
+										$game = "<img src=\"img/games/" . $data["ModDir"] . ".png\" alt=\"" . $data["HostName"] . "\"/>";
 									else if($data["ModDir"] == "cstrike")
 										$game = "<img src=\"img/games/" . $data["ModDir"] . ".png\" alt=\"" . $data["HostName"] . "\"/>";
 									else
