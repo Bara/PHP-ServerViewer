@@ -202,12 +202,19 @@
 									if(strlen($gameMELink) > 1)
 										$gameME = "<a href='$gameMELink' target='_blank'><img src='img/gameme.png' alt='' /></a>";
 
+									$map = $data["Map"];                                    
+									$wMap = explode("/", $map);
+									if (is_numeric($wMap[1]))
+									{
+										$map = $wMap[2];
+									}
+
 									$aServer = [
 										"status"     => $status,
 										"flag"       => $flag,
 										"game"       => $game,
 										"hostname"   => $hostname,
-										"map"        => $data["Map"],
+										"map"        => $map,
 										"nplayers"   => $nplayers,
 										"mplayers"   => $mplayers,
 										"color"      => $color,
